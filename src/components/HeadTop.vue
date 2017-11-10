@@ -19,10 +19,6 @@
 
 	export default {
 		name:'HeadTop',
-		created(){
-			console.error("===========this.$route============");
-			console.error(this.$route.meta);
-		}
 	}
 </script>
 
