@@ -17,10 +17,8 @@
 		beforeCreate: function () {
 			console.error("===========beforeCreate============",new Date());
 		},
-		created(){
+		created: function () {
 			console.error("===========created============",new Date());
-			console.error("===========this.$route============");
-			console.error(this.$route);
 		},
 		beforeMount: function () {
 			console.error("===========beforeMount============",new Date());

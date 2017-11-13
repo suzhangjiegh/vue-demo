@@ -26,7 +26,8 @@ export default new Router({
 				{
 					path:'home',
 					name:'home',
-					component:Home
+					component:Home,
+					meta: ['首页'],
 				},
 				{
 					path:'userlist',

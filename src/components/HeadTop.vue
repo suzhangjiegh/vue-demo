@@ -19,6 +19,9 @@
 
 	export default {
 		name:'HeadTop',
+		beforeUpdate(){
+			console.log(this.$route.meta);
+		}
 	}
 </script>
 

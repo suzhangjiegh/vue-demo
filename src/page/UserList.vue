@@ -50,36 +50,27 @@
 <script>
 
 	import headtop from '../components/HeadTop.vue'
+	import {getUserList} from '../api/getData'
 
 	export default {
 		data(){
 			return {
-				tableData: [{
-					registe_time: '2016-05-02',
-					username: '王小虎',
-					city: '上海市普陀区金沙江路 1518 弄'
-				}, {
-					registe_time: '2016-05-04',
-					username: '王小虎',
-					city: '上海市普陀区金沙江路 1517 弄'
-				}, {
-					registe_time: '2016-05-01',
-					username: '王小虎',
-					city: '上海市普陀区金沙江路 1519 弄'
-				}, {
-					registe_time: '2016-05-03',
-					username: '王小虎',
-					city: '上海市普陀区金沙江路 1516 弄'
-				}],
-				currentRow: null,
-				offset: 0,
-				limit: 20,
-				count: 0,
-				currentPage: 1,
+				tableData: []
 			}
 		},
 		components: {
 			headtop
+		},
+		created(){
+			this.getUser();
+		},
+		methods: {
+			async getUser(){
+				const data =await getUserList("body");
+				console.log("UserList.vue", data)
+				this.tableData = data.tableData;
+			}
+
 		}
 	}
 </script>
