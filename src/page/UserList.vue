@@ -20,6 +20,7 @@
 				</tr>
 				</tbody>
 			</table>-->
+
 			<el-table
 				:data="tableData"
 				highlight-current-row
