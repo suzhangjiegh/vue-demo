@@ -12,8 +12,10 @@ Vue.use(Router)
  * @constructor
  */
 const Manage = r =>require.ensure([], ()=> r(require('@/page/Manage')),'Manage');
-const UserList= r =>require.ensure([], ()=> r(require('@/page/UserList')),'UserList');
 const Home= r =>require.ensure([], ()=> r(require('@/page/Home')),'Home');
+
+const UserList= r =>require.ensure([], ()=> r(require('@/page/UserList')),'UserList');
+const OrderList= r =>require.ensure([], ()=> r(require('@/page/OrderList')),'OrderList');
 
 console.error(this.routes);
 export default new Router({
@@ -34,6 +36,12 @@ export default new Router({
 					name:'UserList',
 					component:UserList,
 					meta: ['数据管理', '用户列表'],
+				},
+				{
+					path:'orderlist',
+					name:'OrderList',
+					component:OrderList,
+					meta: ['数据管理', '订单列表'],
 				}
 			]
 		},

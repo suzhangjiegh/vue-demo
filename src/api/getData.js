@@ -9,5 +9,10 @@ import db from './db';
  */
 export const getUserList = data => db.doPost('getUserList',data);
 
+/**
+ * 获取订单信息
+ */
+export const getOrderList = data => db.doPost('getOrderList',data);
+
 // 方法二
 // export const getUserList =async data =>await db.doPost('getUserList',data);
