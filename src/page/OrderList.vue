@@ -13,15 +13,23 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr v-for="(item,index) in tableData"  :key="index">
-
+				<template v-for="(item,index) in tableData">
+					<tr>
 						<td>{{index}}</td>
 						<td>{{item.id}}</td>
 						<td>{{item.total_amount}}</td>
 						<td>{{item.status_bar.title}}</td>
-						<th><button>详情</button></th>
-
-				</tr>
+						<th>
+							<button v-on:click="showItem(index)">详情</button>
+						</th>
+					</tr>
+					<tr v-if="index == i" class="details">
+						<td>{{index}}</td>
+						<td>{{item.id}}</td>
+						<td>{{item.total_amount}}</td>
+						<td>{{item.status_bar.title}}</td>
+					</tr>
+				</template>
 				</tbody>
 			</table>
 		</div>
@@ -29,6 +37,8 @@
 </template>
 
 <script>
+	/* eslint-disable no-mixed-spaces-and-tabs */
+
 
 	import headtop from '../components/HeadTop.vue'
 	import {getOrderList} from '../api/getData'
@@ -36,7 +46,8 @@
 	export default {
 		data(){
 			return {
-				tableData: []
+				tableData: [],
+				i:-1,
 			}
 		},
 		components: {
@@ -50,6 +61,9 @@
 				const data =await getOrderList("body");
 				console.log("OrderList.vue", data);
 				this.tableData = data;
+			},
+			showItem(index){
+			    this.i = (this.i==index) ? -1 : index;
 			}
 
 		}
@@ -63,5 +77,8 @@
 	}
 	button{
 		background: red;
+	}
+	.details{
+
 	}
 </style>
