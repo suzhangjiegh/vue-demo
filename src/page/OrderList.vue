@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
 	<div>
 		<headtop></headtop>
 		<div class="table_container">
@@ -19,15 +19,13 @@
 						<td>{{item.id}}</td>
 						<td>{{item.total_amount}}</td>
 						<td>{{item.status_bar.title}}</td>
-						<th>
+						<td>
 							<button v-on:click="showItem(index)">详情</button>
-						</th>
+						</td>
 					</tr>
-					<tr v-if="index == i" class="details">
-						<td>{{index}}</td>
-						<td>{{item.id}}</td>
-						<td>{{item.total_amount}}</td>
-						<td>{{item.status_bar.title}}</td>
+					<tr v-if="index == i">
+						<td></td>
+						<td class="details" colspan="3">详情</td>
 					</tr>
 				</template>
 				</tbody>
@@ -59,8 +57,8 @@
 		methods: {
 			async getOrder(){
 				const data =await getOrderList("body");
-				console.log("OrderList.vue", data);
 				this.tableData = data;
+				console.log("OrderList.vue", this.tableData);
 			},
 			showItem(index){
 			    this.i = (this.i==index) ? -1 : index;
@@ -77,8 +75,18 @@
 	}
 	button{
 		background: red;
+		padding: 2px 10px;
+		color: #F5F5F5;
 	}
 	.details{
-
+		margin: 10px;
+		height: 40px;
+		min-width: 0;
+		text-overflow: ellipsis;
+		vertical-align: middle;
+		text-align: center;
+		border: 1px solid #cccccc;
 	}
+
+
 </style>
